@@ -162,13 +162,14 @@ class myApp(QWidget, Ui_Dialog):
                 self.display_T_ext.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Text'])) 
                 self.display_T_Salon.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tint'])) 
                 self.display_T_v3v.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tv3v'])) 
-                self.P_elec_tot= data_chauffage['ELEC']['CHP'] + data_chauffage['ELEC']['CHC']
+                #self.P_elec_tot= data_chauffage['ELEC']['CHP'] + data_chauffage['ELEC']['CHC']
                 self.display_PA_compteurEDF.setText("{:5} VA".format(data_chauffage['EDF']['PAPP']))
                 if data_chauffage['EDF']['PTEC'] == 'HC..' :
                     self.Led_HeuresCreuses.setStyleSheet("background-color: rgb(0,255,0);")
                 else :
                     self.Led_HeuresCreuses.setStyleSheet("background-color: rgb(249, 255, 246);")
-                self.display_E_chauffage.setText("{0:.2f} kWh/J".format(self.P_elec_tot))  
+                self.display_E_HP_chauffage.setText("E/j HP: {0:4.2f} kWh".format(data_chauffage['ELEC']['CHP']))
+                self.display_E_HC_chauffage.setText("E/j HC: {0:4.2f} kWh".format(data_chauffage['ELEC']['CHC']))  
                 self.progressBar_Pos_v3v.setValue(int(data_chauffage['VANN']))  
                 self.display_T_cons_eau.setText("{0:.2f}°C".format(data_chauffage['CONS']))
                 if self.lineEdit_Consigne.hasFocus() == False:

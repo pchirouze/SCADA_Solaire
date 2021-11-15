@@ -386,12 +386,12 @@ background-color: rgb(209, 213, 231);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="display_E_chauffage">
+  <widget class="QLabel" name="display_E_HP_chauffage">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>270</y>
-     <width>81</width>
+     <x>360</x>
+     <y>290</y>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
@@ -403,10 +403,10 @@ background-color: rgb(209, 213, 231);</string>
     <enum>QFrame::WinPanel</enum>
    </property>
    <property name="text">
-    <string>xx.x kWh/J</string>
+    <string>xx.x kWh</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="Led_Pompe_Chauffage">
@@ -686,8 +686,8 @@ background-color: rgb(185, 255, 199);</string>
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>480</y>
-     <width>61</width>
+     <y>490</y>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -702,14 +702,14 @@ background-color: rgb(209, 213, 231);</string>
     <string>xxxx VA</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_Consigne_2">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>480</y>
+     <y>490</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -737,11 +737,17 @@ background-color: rgb(209, 213, 231);</string>
   <widget class="QLabel" name="Led_HeuresCreuses">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>460</y>
-     <width>15</width>
-     <height>15</height>
+     <x>380</x>
+     <y>470</y>
+     <width>16</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(249, 255, 246);</string>
@@ -752,12 +758,15 @@ background-color: rgb(209, 213, 231);</string>
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_Consigne_3">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>460</y>
+     <x>280</x>
+     <y>470</y>
      <width>101</width>
      <height>20</height>
     </rect>
@@ -782,6 +791,29 @@ background-color: rgb(209, 213, 231);</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="display_E_HC_chauffage">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>310</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+background-color: rgb(209, 213, 231);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="text">
+    <string>xx.x kWh</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
   <zorder>label_synoptique</zorder>
   <zorder>label_T_ext</zorder>
   <zorder>label_T_salon</zorder>
@@ -797,7 +829,7 @@ background-color: rgb(209, 213, 231);</string>
   <zorder>progressBar_Pos_v3v</zorder>
   <zorder>display_P_solaire</zorder>
   <zorder>display_E_solaire</zorder>
-  <zorder>display_E_chauffage</zorder>
+  <zorder>display_E_HP_chauffage</zorder>
   <zorder>Led_Pompe_Chauffage</zorder>
   <zorder>Led_Pompe_Solaire</zorder>
   <zorder>Led_thermoplongeur</zorder>
@@ -815,6 +847,7 @@ background-color: rgb(209, 213, 231);</string>
   <zorder>label_Consigne_2</zorder>
   <zorder>Led_HeuresCreuses</zorder>
   <zorder>label_Consigne_3</zorder>
+  <zorder>display_E_HC_chauffage</zorder>
  </widget>
  <resources>
   <include location="RessourceFile.qrc"/>
