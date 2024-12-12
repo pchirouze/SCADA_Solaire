@@ -641,7 +641,7 @@ background-color: rgb(185, 255, 199);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="Display_I_Inst">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -663,7 +663,7 @@ background-color: rgb(185, 255, 199);</string>
   <widget class="QCheckBox" name="checkBox_Mode_Regul">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>460</y>
      <width>241</width>
      <height>21</height>
@@ -685,7 +685,7 @@ background-color: rgb(185, 255, 199);</string>
   <widget class="QLabel" name="display_PA_compteurEDF">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>220</x>
      <y>490</y>
      <width>71</width>
      <height>21</height>
@@ -708,9 +708,9 @@ background-color: rgb(209, 213, 231);</string>
   <widget class="QLabel" name="label_Consigne_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>130</x>
      <y>490</y>
-     <width>161</width>
+     <width>91</width>
      <height>20</height>
     </rect>
    </property>
@@ -725,7 +725,7 @@ background-color: rgb(209, 213, 231);</string>
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>Puissance app. compteur :</string>
+    <string>PApp_Compt. :</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -737,8 +737,8 @@ background-color: rgb(209, 213, 231);</string>
   <widget class="QLabel" name="Led_HeuresCreuses">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>470</y>
+     <x>390</x>
+     <y>460</y>
      <width>16</width>
      <height>16</height>
     </rect>
@@ -766,7 +766,7 @@ background-color: rgb(209, 213, 231);</string>
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>470</y>
+     <y>460</y>
      <width>101</width>
      <height>20</height>
     </rect>
@@ -814,6 +814,81 @@ background-color: rgb(209, 213, 231);</string>
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="display_P_Chauffe">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>240</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+background-color: rgb(209, 213, 231);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="text">
+    <string>xxxx.x kW</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Consigne_4">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>490</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>PInst compt. :</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="display_I_Inst">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>490</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+background-color: rgb(209, 213, 231);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="text">
+    <string>xx A</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
   <zorder>label_synoptique</zorder>
   <zorder>label_T_ext</zorder>
   <zorder>label_T_salon</zorder>
@@ -841,13 +916,16 @@ background-color: rgb(209, 213, 231);</string>
   <zorder>Led_refresh_chauffage</zorder>
   <zorder>Led_refresh_solaire</zorder>
   <zorder>display_T_cons_eau</zorder>
-  <zorder>label</zorder>
+  <zorder>Display_I_Inst</zorder>
   <zorder>checkBox_Mode_Regul</zorder>
   <zorder>display_PA_compteurEDF</zorder>
   <zorder>label_Consigne_2</zorder>
   <zorder>Led_HeuresCreuses</zorder>
   <zorder>label_Consigne_3</zorder>
   <zorder>display_E_HC_chauffage</zorder>
+  <zorder>display_P_Chauffe</zorder>
+  <zorder>label_Consigne_4</zorder>
+  <zorder>display_I_Inst</zorder>
  </widget>
  <resources>
   <include location="RessourceFile.qrc"/>

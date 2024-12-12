@@ -19,9 +19,10 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
-#  
-# 
-# 
+#------------------------------------------------------------------------------------------------------------------------------
+# SI MODIFICATION INTERFACE GRAPHIQUE IL FAUT REGENERER LE CODE PYTHON A PARTIR DU CODE .UI VIA LA LIGNE DE COMMANDE SUIVANTE
+#                pyuic5 ProjetNewChauffe.ui -x -o ProjetNewChauffe.py
+#------------------------------------------------------------------------------------------------------------------------------
 
 import json
 from PyQt5.QtWidgets import *
@@ -39,7 +40,8 @@ import paho.mqtt.client as mqtt
 DEBUG = False
 
 # Avec broker MQTT mosquitto sur Raspberry PI 4
-MQTT_SERVER = '88.124.136.85'  # Accès remote IP box et redirection port routeur box
+# MQTT_SERVER = '88.124.136.85'  # Accès remote IP box et redirection port routeur box (connexion ADSL)
+MQTT_SERVER = '88.185.240.171'  # Accès remote IP box et redirection port routeur box (connexion fibre)
 MQTT_PORT = 17100              # Accès remote IP box et redirection port routeur box
 #MQTT_SERVER = '192.168.0.41'    # Accès local IP fixe Raspberry 
 #MQTT_PORT = 1883                # Accès local IP fixe Raspberry
@@ -79,7 +81,7 @@ class myApp(QWidget, Ui_Dialog):
         Ui_Dialog.__init__(self) # initialise le Qwidget principal
         QWidget.__init__(self)
         self.setupUi(parent) # Obligatoire
-        self.clientmqtt = mqtt.Mosquitto()  # Herite de Client
+        self.clientmqtt = mqtt.Client()  # Herite de Client
         self.clientmqtt.username_pw_set(MQTT_USER,MQTT_PASSW)
         self.clientmqtt.on_connect = on_connect
         self.clientmqtt.on_message = on_message
@@ -160,10 +162,12 @@ class myApp(QWidget, Ui_Dialog):
                     self.Led_thermoplongeur.setStyleSheet("background-color: rgb(0, 255, 0);")
                 self.display_T_cuve_m.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tcuv'])) 
                 self.display_T_ext.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Text'])) 
-                self.display_T_Salon.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tint'])) 
+                self.display_T_Salon.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tint']))
                 self.display_T_v3v.setText("{0:.2f}°C".format(data_chauffage['TEMP']['Tv3v'])) 
-                #self.P_elec_tot= data_chauffage['ELEC']['CHP'] + data_chauffage['ELEC']['CHC']
+                self.P_elec_tot = data_chauffage['ELEC']['CHP'] + data_chauffage['ELEC']['CHC']
                 self.display_PA_compteurEDF.setText("{:5} VA".format(data_chauffage['EDF']['PAPP']))
+                self.display_P_Chauffe.setText("{0:4} W".format(int(data_chauffage['ELEC']['PW'])))
+                self.display_I_Inst.setText("{:2} A".format(data_chauffage['EDF']['IINST'])) 
                 if data_chauffage['EDF']['PTEC'] == 'HC..' :
                     self.Led_HeuresCreuses.setStyleSheet("background-color: rgb(0,255,0);")
                 else :
